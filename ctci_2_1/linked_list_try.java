@@ -1,28 +1,96 @@
+import java.util.Scanner;
+
+import javax.net.ssl.ExtendedSSLSession;
+
+import javafx.scene.shape.Ellipse;
+
 class linked_list_try {
     public static void main(String args[]){
+        Scanner input = new Scanner(System.in);
+        int val,p;
         Linked_List ll = new Linked_List();
-        System.out.println("Is list empty? "+ll.isEmpty());
-        System.out.println("Size of Linked_list: "+ll.get_size());
-        ll.add_front(3);
-        ll.add_front(2);
-        ll.add_front(1);
-        ll.display();
-        ll.add_end(5);
-        ll.display();
-        ll.add_at_position(4, 4);
-        ll.display();
-        System.out.println("Size of Linked_list: "+ll.get_size());
-        System.out.println("Is list empty? "+ll.isEmpty());
-        int a = ll.delete_front();
-        System.out.println("Deleted Node from front: "+a);
-        ll.display();
-        int b = ll.delete_end();
-        System.out.println("Deleted Node from end: "+b);
-        ll.display();
-        int c = ll.delete_at_position(2);
-        System.out.println("Deleted Node from position: "+c);
-        ll.display();
+        //input.close();
+        while(true){
+            System.out.println("\nLinked List Operations\n");
+            System.out.println("1. Insert at begining");
+            System.out.println("2. Insert at end");
+            System.out.println("3. Insert at position");
+            System.out.println("4. Delete at begining");
+            System.out.println("5. Delete at end");
+            System.out.println("6. Delete at position");
+            System.out.println("7. Check if empty");
+            System.out.println("8. Get size");
+            System.out.println("9. Display entire list");
+            System.out.println("0. Exit"); 
 
+            System.out.print("Choice: ");
+            int in = input.nextInt();
+
+            switch(in){
+                case 1:
+                    System.out.println("Enter value to insert: ");
+                    val = input.nextInt();
+                    ll.add_front(val);
+                    break;
+                
+                case 2:
+                    System.out.println("Enter value to insert: ");
+                    val = input.nextInt();
+                    if(ll.get_size()>0)
+                        ll.add_end(val);
+                    else
+                        ll.add_front(val);
+                    break;
+
+                case 3:
+                    System.out.println("Enter value to insert: ");
+                    val = input.nextInt();
+                    System.out.println("Enter position:");
+                    p = input.nextInt();
+                    if(p>ll.get_size())
+                        System.out.println("Invalid Position");
+                    else
+                        ll.add_at_position(val, p);
+                    break;
+                
+                case 4:
+                    val = ll.delete_front();
+                    System.out.println("Element deleted: "+val);
+                    break;
+
+                case 5:
+                    val = ll.delete_end();
+                    System.out.println("Element deleted: "+val);
+                    break;
+
+                case 6:
+                    System.out.println("Enter position: ");
+                    p = input.nextInt();
+                    val = ll.delete_at_position(p);
+                    System.out.println("Element deleted: "+val);
+                    break;
+                
+                case 7:
+                    boolean ans=ll.isEmpty();
+                    if(ans)
+                        System.out.println("Yes");
+                    else
+                        System.out.println("No");
+                    break;
+                
+                case 8:
+                    System.out.print("Size: "+ll.get_size());
+                    break;
+
+                case 9:
+                    System.out.println("\n-----Linked List-----");
+                    ll.display();
+                    break;
+                
+                case 0:
+                    System.exit(0);
+            }      
+        }
     }
 }
 
