@@ -218,4 +218,8 @@ class Linked_List{
             return res;
         }
     }
+
+    public Node getHeadNode(){
+        return head;
+    }
 }
