@@ -31,7 +31,7 @@ class Followup{
         
         LinkedList<Integer> temp = new LinkedList<Integer>();
 
-        while(res>1){
+        while(res>0){
             int mod = res%10;
             temp.add(mod);
             res = res/10;
