@@ -3,19 +3,7 @@ class Solution{
 
     static Linked_List ll = new Linked_List();
     
-    public void isPalindrome(){
-
-        /*Node prev = null;
-        Node head = ll.getHeadNode();
-        while(head!=null && head.next!=null){
-            Node next = head.next;
-            head.next = prev;
-            prev = head;
-            head = next.next;
-            next.next=prev;
-        }
-        System.out.println("while ended");
-        ll.display();*/
+    public boolean isPalindrome(){
 
         int flag =0;
         int j = ll.get_size()-1;
@@ -31,22 +19,22 @@ class Solution{
         }
 
         if(flag !=0)
-            System.out.println("Linked list is not palindrome");
+            return false;
         else
-            System.out.println("Linked list is palindrome");
+            return true;
     }
     
     public static void main(String[] args){
         ll.add_end(1);ll.add_end(2);ll.add_end(3);ll.add_end(4);ll.add_end(5);ll.add_end(4);
-        ll.add_end(3);ll.add_end(2);
+        ll.add_end(3);ll.add_end(2);ll.add_end(1);
         ll.display();
         Solution obj = new Solution();
-        obj.isPalindrome();
+        boolean res = obj.isPalindrome();
 
-        /*if(res)
+        if(res)
             System.out.println("Linked list is palindrome");
         else
-            System.out.println("Linked list is not palindrome");*/
+            System.out.println("Linked list is not palindrome");
     }
 }
 
