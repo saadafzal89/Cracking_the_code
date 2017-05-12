@@ -7,7 +7,7 @@ class Solution{
         LinkedList<Integer> ll2 = new LinkedList<Integer>();
         LinkedList<Integer> result = new LinkedList<Integer>();
 
-        ll1.add(7);ll1.add(1);ll1.add(6);
+        ll1.add(7);ll1.add(1);ll1.add(1);ll1.add(1);
         ll2.add(5);ll2.add(9);ll2.add(2);
 
         int l1=0, l2=0, res =0;
@@ -30,7 +30,7 @@ class Solution{
         System.out.println("Second: "+l2);
 
         res = l1+l2;
-        while(res>1){
+        while(res>0){
             int mod = res%10;
             result.add(mod);
             res = res/10;
