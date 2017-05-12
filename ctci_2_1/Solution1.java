@@ -4,14 +4,10 @@ class Solution1{
     public void answer(Node head){
         Node curr = head;
         while(curr.next !=null){
-            Node curr_ahead = curr.next;
-            while(curr_ahead.next!=null){
-                if(curr_ahead.data==curr.data){
-                    curr.next = curr_ahead.next;
-                }
-                curr_ahead = curr_ahead.next;
-            }
-            curr = curr.next;
+            if(curr.data == curr.next.data)
+                curr.next = curr.next.next;
+            else
+                curr = curr.next;
         }
         ll.display();
     }
