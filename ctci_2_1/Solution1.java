@@ -3,11 +3,15 @@ class Solution1{
     static Linked_List ll = new Linked_List();
     public void answer(Node head){
         Node curr = head;
-        while(curr.next !=null){
-            if(curr.data == curr.next.data)
-                curr.next = curr.next.next;
-            else
-                curr = curr.next;
+        while(curr!=null){
+            Node runner = curr;
+            while(runner.next!=null){
+                if(runner.next.data == curr.data)
+                    runner.next = runner.next.next;
+                else
+                    runner = runner.next;
+            }
+            curr=curr.next;
         }
         ll.display();
     }
@@ -15,7 +19,7 @@ class Solution1{
 
         
         ArrayList<Integer> al = new ArrayList<>();
-        ll.add_front(4);ll.add_front(3);ll.add_front(5);ll.add_front(4);ll.add_front(1);ll.add_front(3);
+        ll.add_front(4);ll.add_front(4);ll.add_front(4);ll.add_front(4);ll.add_front(3);ll.add_front(3);
         ll.display();
 
         Node current = ll.getHeadNode();
