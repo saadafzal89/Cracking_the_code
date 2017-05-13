@@ -1,14 +1,37 @@
 class CircularDetection{
 
+    static Linked_List ll = new Linked_List();
+
+    public int answer(){
+        int res=-1;
+        if(ll.getHeadNode()==null|| ll.getHeadNode().next==null)
+            return res;
+        Node start = ll.getHeadNode();
+        Node ahead = ll.getHeadNode().next;
+        
+        int flag=0;
+        while(start!=null && ahead.next!=null && ahead.next.next!=null){
+            if(start==ahead){
+                flag++;
+                res = start.data;
+                //System.out.println(start.data);
+                //System.out.println(ahead.data);
+                return res;
+            }
+            start =start.next;
+            ahead = ahead.next.next;
+        }
+        return res;
+    }
     public static void main(String[] args){
-        Linked_List ll = new Linked_List();
+        
 
         ll.add_end(1);ll.add_end(2);ll.add_end(3);ll.add_end(4);ll.add_end(5);
         ll.display();
 
         Node mid = ll.getHeadNode();
         int i=0;
-        while(i<2){
+        while(i<1){
             mid = mid.next;
             i++;
         }
@@ -17,27 +40,17 @@ class CircularDetection{
         while(tail.next!=null)
             tail = tail.next;
 
-        System.out.println(mid.data);
-        System.out.println(tail.data);
+        //System.out.println(mid.data);
+        //System.out.println(tail.data);
 
         //Linked list made circular here
         tail.next=mid;
+        //System.out.println("Next of tail: "+tail.next.data);
+        CircularDetection obj = new CircularDetection();
+        int result = obj.answer();
         
-        Node start = ll.getHeadNode();
-        Node ahead = ll.getHeadNode();
-        
-        int flag=0, res=0;
-        while(start!=null && ahead!=null && ahead.next!=null){
-            if(start==ahead){
-                flag++;
-                res = ahead.next.data;
-                break;
-            }
-            start =start.next;
-            ahead = ahead.next.next;
-        }
-        if(flag!=0){
-            System.out.println("Circular linked list detected at value: "+res);
+        if(result>=0){
+            System.out.println("Circular linked list detected ");
         }
         else{
             System.out.println("No loop detected");
