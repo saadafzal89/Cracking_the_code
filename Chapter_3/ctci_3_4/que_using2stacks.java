@@ -1,3 +1,5 @@
+//0(1) for add and O(n) for remove
+
 import java.util.Stack;
 class MyQueueEasyPush{
     Stack<Integer> s1 = new Stack<Integer>();
@@ -26,5 +28,6 @@ class MyQueueEasyPush{
         System.out.println("Head of queue: "+obj.remove());
         System.out.println("Head of queue: "+obj.remove());
         System.out.println("Head of queue: "+obj.remove());
+        
     }
 }
